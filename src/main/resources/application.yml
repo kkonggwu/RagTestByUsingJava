@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: RAG
+  profiles:
+    active: prod
+
+  ai:
+    vectorstore:
+      pgvector:
+        index-type: hnsw
+        dimensions: 1536
+        distance-type: cosine-distance
+        max-document-batch-size: 10000
+#    mcp:
+#      client:
+#        stdio:
+#          servers-configuration: classpath:mcp-servers.json
+
+
+server:
+  port: 8009
+  servlet:
+    context-path: /api
+# springdoc-openapi????
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.kong.ultraproject.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

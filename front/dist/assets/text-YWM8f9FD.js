@@ -1,0 +1,1 @@
+function u(t,a,e){const l=new EventSource(t);return l.onmessage=c=>{try{a(c.data)}catch(s){e==null||e(s)}},l.onerror=c=>{e==null||e(c),l.close()},()=>l.close()}function p(t){return t.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")}export{p as e,u};
